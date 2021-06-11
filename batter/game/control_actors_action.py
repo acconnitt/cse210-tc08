@@ -1,10 +1,11 @@
 from game import constants
 from game.action import Action
 
+
 class ControlActorsAction(Action):
     """A code template for controlling actors. The responsibility of this
     class of objects is translate user input into some kind of intent.
-    
+
     Stereotype:
         Controller
 
@@ -14,7 +15,7 @@ class ControlActorsAction(Action):
 
     def __init__(self, input_service):
         """The class constructor.
-        
+
         Args:
             input_service (InputService): An instance of InputService.
         """
@@ -26,7 +27,7 @@ class ControlActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        paddle = cast["paddle"][0] # there's only one in the cast
+        paddle = cast["paddle"][0]  # there's only one in the cast
         direction = self._input_service.get_direction()
         if paddle.get_position().get_x() - paddle.get_velocity().get_x() >= 1 or paddle.get_position().get_x() + 10 + paddle.get_velocity().get_x() <= 79:
-            paddle.set_velocity(direction)        
+            paddle.set_velocity(direction)
