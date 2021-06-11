@@ -19,8 +19,8 @@ class Actor:
         """The class constructor."""
         self._description = ""
         self._text = ""
-        self._position = Point(0, 0)
-        self._velocity = Point(0, 0)
+        self._position = Point(0, 0) #Start posotion
+        self._velocity = Point(0, 0) #Start velocity
 
     def get_description(self):
         """Gets the artifact's description.

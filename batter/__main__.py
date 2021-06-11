@@ -12,20 +12,22 @@ from game.output_service import OutputService
 from asciimatics.screen import Screen 
 
 def main(screen):
+    """ Class constructor
+    """
 
     # create the cast {key: tag, value: list}
     cast = {}
 
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y - 3)
-    position = Point(x, y)
-    paddle = Actor()
-    paddle.set_text("===========")
-    paddle.set_position(position)
+    position = Point(x, y) # Call class Point and pass values
+    paddle = Actor() # Call class Actor
+    paddle.set_text("===========") # Sets text in Actor
+    paddle.set_position(position) # Sets position in Actor
     cast["paddle"] = [paddle]
 
     cast["brick"] = []
-    for x in range(5, 75):
+    for x in range(5  , 75):
         for y in range(2, 6):
             position = Point(x, y)
             brick = Actor()
@@ -37,12 +39,14 @@ def main(screen):
     y = int(constants.MAX_Y / 2)
     position = Point(x, y)
     velocity = Point(1, -1)
-    ball = Actor()
-    ball.set_text("@")
+    ball = Actor() 
+    ball.set_text("@") 
     ball.set_position(position)
     ball.set_velocity(velocity)
     cast["ball"] = [ball]
     
+
+
     # create the script {key: tag, value: list}
     script = {}
 
@@ -50,7 +54,7 @@ def main(screen):
     output_service = OutputService(screen)
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
-    handle_collisions_acition = HandleCollisionsAction()
+    handle_collisions_acition = HandleCollisionsAction() 
     draw_actors_action = DrawActorsAction(output_service)
     
     script["input"] = [control_actors_action]
@@ -59,6 +63,6 @@ def main(screen):
 
     # start the game
     director = Director(cast, script)
-    director.start_game()
+    director.start_game() 
 
-Screen.wrapper(main)
+Screen.wrapper(main) # Initialize the Screen
